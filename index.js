@@ -30,7 +30,14 @@ app.get('/data', (req, res) => {
 app.get('/', (req, res) => {
     res.send('Hello, Harshitha!');//test point harshitha ramchandra reddy the best friend easter egg
 });
-
+app.get('/bestfriend', (req, res) => {
+    const message = `
+        Harshitha is an incredible person, not just as a best friend but also as someone with a kind heart and a brilliant mind. 
+        She's always there for those who matter to her, offering unwavering support and bringing positive energy into any room she walks into. 
+        Anyone would be lucky to have her in their life, and she deserves all the happiness in the world!`;
+        
+    // res.send(message);
+});
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
