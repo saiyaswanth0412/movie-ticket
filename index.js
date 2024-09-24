@@ -36,7 +36,7 @@ app.get('/bestfriend', (req, res) => {
         She's always there for those who matter to her, offering unwavering support and bringing positive energy into any room she walks into. 
         Anyone would be lucky to have her in their life, and she deserves all the happiness in the world!`;
         
-    res.send(message);
+    // res.send(message);
 });
 // Start the server
 app.listen(PORT, () => {
