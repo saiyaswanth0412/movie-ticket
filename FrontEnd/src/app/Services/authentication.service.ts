@@ -12,3 +12,4 @@ export class AuthenticationService {
 
   isAuthenticated(): boolean { return this.loggedIn; }
 }
+
