@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
+import { EnsureAuthentication } from './Common/EnsureAuthentication';
 
 const routes: Routes = [
   {
-    path: 'abc',
-    component: LoginComponent
+    path: 'login',
+    component: HomeComponent
+  },
+  {
+    path: 'signup',
+    component: HomeComponent
   },
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [EnsureAuthentication]
   }
 ];
 

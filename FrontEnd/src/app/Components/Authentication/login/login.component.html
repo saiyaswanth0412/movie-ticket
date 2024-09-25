@@ -1,0 +1,31 @@
+<div class="container" style="margin-top: 10px;">
+    <div class="row justify-content-center">
+      <div class="col-md-6 ">
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" [(ngModel)]="email" name="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+              <input
+                [type]="show ? 'text':'password'" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="password" name="password" required />
+              <button
+                class="btn btn-outline-secondary" type="button"
+                (click)="handleClick()">
+                {{ show ?'Hide':'Show' }}
+              </button>
+            </div>
+          </div>
+          <button class="btn btn-primary w-100" (click)="submitHandler()" [disabled]="picLoading" style="margin-top: 15px;">
+            Login
+          </button>
+          <button class="btn btn-danger w-100" (click)="setGuestUser()" [disabled]="picLoading" style="margin-top: 15px;">
+            Guest User
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
