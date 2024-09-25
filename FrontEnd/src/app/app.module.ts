@@ -15,6 +15,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MoviecardComponent } from './Components/moviecard/moviecard.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { FilterComponent } from './Components/filter/filter.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MoviesComponent } from './Components/movies/movies.component';
+import { MovieListComponent } from './Components/movie-list/movie-list.component';
 
 
 @NgModule({
@@ -22,7 +33,12 @@ import { MatCardModule } from '@angular/material/card';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    MoviecardComponent,
+    NavbarComponent,
+    FilterComponent,
+    MoviesComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +51,14 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatToolbarModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserModule,
+    MatChipsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

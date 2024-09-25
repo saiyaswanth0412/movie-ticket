@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <div style="margin-right: 50px;">TicketBookingSystem</div>
+    <button mat-button routerLink="/">Movies</button>
+    <button mat-button routerLink="#">AboutUs</button>
+    
+        
+    <div class="search-container">
+      <mat-form-field style="margin-right: 50px;">
+        <input matInput placeholder="Search" aria-label="Search" >
+      </mat-form-field>
+      <button mat-button [matMenuTriggerFor]="menu" style="margin-right: 50px;">Profile</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Tarun</button>
+        <button mat-menu-item>Booked Tickets</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  

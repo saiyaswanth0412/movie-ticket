@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { EnsureAuthentication } from './Common/EnsureAuthentication';
+import { MoviecardComponent } from './Components/moviecard/moviecard.component';
+import { MoviesComponent } from './Components/movies/movies.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,11 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [EnsureAuthentication]
+  },
+  {
+    path: 'movies',
+    component: MoviesComponent,
     canActivate: [EnsureAuthentication]
   }
 ];

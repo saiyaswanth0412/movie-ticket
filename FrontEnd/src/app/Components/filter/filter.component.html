@@ -1,0 +1,20 @@
+<div class="filter-container">
+    <h2>{{selectedGenre}} Movies</h2> 
+    <div class="filter-content">
+      <mat-chip-list>
+        <mat-chip *ngFor="let genre of genres" [selected]="genre === selectedGenre" (click)="selectGenre(genre)" color="primary" [selectable]="true" style="margin-right: 50px;">
+          {{ genre }}
+        </mat-chip>
+      </mat-chip-list>
+      
+      <mat-form-field appearance="fill" class="sort-dropdown">
+        <mat-label>Sort</mat-label>
+        <mat-select [(value)]="selectedSort">
+          <mat-option *ngFor="let option of sortOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  

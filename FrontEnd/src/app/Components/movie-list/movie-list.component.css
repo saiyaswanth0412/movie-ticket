@@ -1,0 +1,11 @@
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+    /* justify-content: center; */
+  }
+  
+  app-movie-card {
+    width: 300px;
+  }
+  

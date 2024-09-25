@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
   password: string = '';
   show: boolean = false;
   picLoading: boolean = false;
+  mobile: string='';
+  name: string = '';
 
   handleClick() {
     this.show = !this.show;
