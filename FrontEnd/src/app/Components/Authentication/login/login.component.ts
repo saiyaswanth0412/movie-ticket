@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -16,11 +17,23 @@ export class LoginComponent implements OnInit {
   show: boolean = false;
   picLoading: boolean = false;
 
+
   handleClick() {
     this.show = !this.show;
   }
 
-  submitHandler() {
+  submitLogin() {
+    this.authService.login({ email: this.email, password: this.password })
+    .subscribe({
+      next: (response) => {
+        if (response && response.token) {
+          this.authService.setLoggedIn(true, response.token);
+        }
+      },
+      error: err => {
+        console.error('Login failed', err);
+      }
+    });
   }
 
   setGuestUser() {

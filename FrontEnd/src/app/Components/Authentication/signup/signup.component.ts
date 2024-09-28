@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +23,18 @@ export class SignupComponent implements OnInit {
     this.show = !this.show;
   }
 
-  submitHandler() {
+  submitSignUp() {
+    this.authService.signUp({ email: this.email, password: this.password,mobile:this.mobile,name:this.name })
+    .subscribe({
+      next: (response) => {
+        if (response && response.token) {
+          this.authService.setLoggedIn(true, "token");
+        }
+      },
+      error: err => {
+        console.error('Sigup failed', err);
+      }
+    });
   }
 
 }

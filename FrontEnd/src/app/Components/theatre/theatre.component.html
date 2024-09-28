@@ -1,0 +1,39 @@
+<div class="movie-detail-container">
+    <div 
+      class="movie-header" 
+      [ngStyle]="{'background-image': 'url(' + selectedMovie.backgroundImage + ')'}">
+      <div class="overlay"></div>
+      <div class="movie-info">
+        <h1>{{ selectedMovie.title }}</h1>
+        <div class="movie-meta">
+          <span class="rating">⭐ {{ selectedMovie.rating }}/10</span>
+          <span>{{ selectedMovie.status }}</span>
+          <span>{{ selectedMovie.year }}</span>
+          <span>{{ selectedMovie.genre }}</span>
+        </div>
+        <p class="movie-description">{{ selectedMovie.description }}</p>
+      </div>
+    </div>
+  
+    <div class="theater-list">
+      <div class="theater-cards">
+        <mat-card *ngFor="let theater of selectedMovie.theaters" class="example-card" appearance="outlined">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ theater.name }}</mat-card-title>
+            <mat-card-subtitle>{{ theater.rating }}/10</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="theater.image" alt="{{theater.name}}">
+          <mat-card-content>
+            <p>{{ theater.description }}</p>
+            <p><strong>Address:</strong> {{ theater.address }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button type="button" class="btn btn-danger">Book Now</button>
+            <button type="button" class="btn btn-primary">Like</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
