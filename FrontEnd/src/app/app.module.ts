@@ -28,6 +28,7 @@ import { MoviesComponent } from './Components/movies/movies.component';
 import { MovieListComponent } from './Components/movie-list/movie-list.component';
 import { TheatreComponent } from './Components/theatre/theatre.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BookingComponent } from './Components/booking/booking.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MoviesComponent,
     MovieListComponent,
     TheatreComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,

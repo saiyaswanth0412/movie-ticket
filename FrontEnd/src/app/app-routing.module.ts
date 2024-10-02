@@ -5,6 +5,7 @@ import { EnsureAuthentication } from './Common/EnsureAuthentication';
 import { MoviecardComponent } from './Components/moviecard/moviecard.component';
 import { MoviesComponent } from './Components/movies/movies.component';
 import { TheatreComponent } from './Components/theatre/theatre.component';
+import { BookingComponent } from './Components/booking/booking.component';
 
 const routes: Routes = [
   {
@@ -26,10 +27,16 @@ const routes: Routes = [
     canActivate:[EnsureAuthentication]
   },
   {
+    path:'booking',
+    component:BookingComponent,
+    canActivate:[EnsureAuthentication]
+  },
+  {
     path: '',
     component: HomeComponent,
     canActivate: [EnsureAuthentication]
   },
+
 ];
 
 @NgModule({

@@ -1,0 +1,50 @@
+<div class="booking-page-container">
+
+    <div class="main-content">
+      <div class="movie-selection">
+        <mat-card class="movie-card">
+          <h2>Movie Selected</h2>
+          <div class="movie-info">
+            <b>{{ selectedMovie.title }}</b>
+            <p>{{ selectedMovie.genre }}</p>
+            <p>{{ selectedMovie.status }}</p>
+            <button mat-button class="change-movie-btn">Change Movie</button>
+          </div>
+        </mat-card>
+  
+        <div class="seat-selection">
+          <h3>Choose Your Seat</h3>
+          <div class="screen">Screen</div>
+          <div class="seats-grid">
+            <div class="row" *ngFor="let row of seatRows">
+              <button mat-icon-button
+                *ngFor="let seat of row"
+                [disabled]="seat.booked"
+                [ngClass]="{ 'selected': selectedSeats.includes(seat.number) }"
+                (click)="onSelectSeat(seat)">
+                {{ seat.number }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="order-info">
+        <mat-card>
+          <h1>Booking Deails</h1>
+          <div class="order-details">
+            <p><strong>Movie selected:</strong> {{ selectedMovie.title }}</p>
+            <p><strong>Date:</strong> {{ selectedMovie.date }}</p>
+            <p><strong>Time:</strong> {{ selectedMovie.time }}</p>
+            <p><strong>Ticket Price:</strong> ${{ selectedMovie.price }}</p>
+            <p><strong>Seats Chosen:</strong> {{ selectedSeats.join(', ') || 'None' }}</p>
+          </div>
+          <div class="total-payment">
+            <p>Total Payment: ${{ totalPayment }}</p>
+          </div>
+          <div style="margin: auto;text-align:center;"><button type="button" class="btn btn-danger">Book Now</button></div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
