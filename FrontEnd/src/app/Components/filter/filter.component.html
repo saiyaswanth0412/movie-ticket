@@ -6,15 +6,6 @@
           {{ genre }}
         </mat-chip>
       </mat-chip-list>
-      
-      <mat-form-field appearance="fill" class="sort-dropdown">
-        <mat-label>Sort</mat-label>
-        <mat-select [(value)]="selectedSort">
-          <mat-option *ngFor="let option of sortOptions" [value]="option">
-            {{ option }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
     </div>
   </div>
   

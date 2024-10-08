@@ -29,6 +29,7 @@ import { MovieListComponent } from './Components/movie-list/movie-list.component
 import { TheatreComponent } from './Components/theatre/theatre.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BookingComponent } from './Components/booking/booking.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { BookingComponent } from './Components/booking/booking.component';
     BrowserModule,
     MatChipsModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

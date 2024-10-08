@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalsService } from 'src/app/Services/Globals/globals.service';
 
 @Component({
   selector: 'app-filter',
@@ -6,20 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   genres: string[] = ['All', 'Action', 'Adventure', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy'];
   selectedGenre: string = 'All';
-  
-  sortOptions: string[] = ['Title', 'Rating'];
-  selectedSort: string = ''
+
+  constructor(private globalsService: GlobalsService) { }
+
+  ngOnInit(): void { }
 
   selectGenre(genre: string) {
     this.selectedGenre = genre;
-    // Handle genre selection logic
+    this.globalsService.selectedGenere = genre;
   }
 }
