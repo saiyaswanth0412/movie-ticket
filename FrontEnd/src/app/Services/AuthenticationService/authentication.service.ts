@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-// import {loginSchema} from '../../../../Backend/config/api.js';
+import {Endpoint} from '../../Config/endpoints';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   
-  private loginUrl = "http://localhost:3000/api/auth/login"
-  private signUpUrl = "http://localhost:3000/api/auth/signup"
   private loggedIn = new BehaviorSubject<boolean>(this.checkLocalStorage());
 
   constructor(private http: HttpClient) {}
 
   login(credentials: { email: string, password: string }): Observable<any> {
-  return this.http.post<any>(this.loginUrl, credentials, {
+  return this.http.post<any>(Endpoint.logIn, credentials, {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   });
 }
 signUp(credentials: { email: string, password: string,name:string,mobile:string }): Observable<any> {
-  return this.http.post<any>(this.signUpUrl, credentials, {
+  return this.http.post<any>(Endpoint.signUp, credentials, {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   });
 }

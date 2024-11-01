@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/Services/authentication.service';
+import { Route, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/Services/AuthenticationService/authentication.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService,private router: Router,public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -28,10 +30,12 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         if (response && response.token) {
           this.authService.setLoggedIn(true, response.token);
+          this.displayMessage("Login successful");
+          this.router.navigate(['/movies'])
         }
       },
       error: err => {
-        console.error('Login failed', err);
+        this.displayMessage("Invalid Credentials");
       }
     });
   }
@@ -39,6 +43,14 @@ export class LoginComponent implements OnInit {
   setGuestUser() {
     this.email = 'guestuser@gmail.com';
     this.password = 'guest';
+  }
+
+  private displayMessage(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
   }
 
 }
