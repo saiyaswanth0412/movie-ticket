@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [EnsureAuthentication]
   },
   {
-    path:'movie',
+    path:'movie/:id',
     component:TheatreComponent,
     canActivate:[EnsureAuthentication]
   },
