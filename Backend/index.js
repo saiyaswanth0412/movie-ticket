@@ -4,6 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const db = require('./config/db');
 const authRoutes = require('./Routes/authRoutes'); 
+const movieRoutes = require('./Routes/movieRouter');
+const authMiddleware = require('./middleware/authMiddleware');
 
 const app = express();
 
@@ -11,6 +13,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/auth', authRoutes); 
+app.use('/api/movie', authMiddleware,movieRoutes);
 
 const PORT = process.env.PORT || 3000;
 
