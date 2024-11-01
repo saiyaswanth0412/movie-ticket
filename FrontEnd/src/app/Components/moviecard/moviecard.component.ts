@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MovieApiService } from 'src/app/Services/Movies/movies.service';
 import { Router } from '@angular/router';
 
 @Component({
