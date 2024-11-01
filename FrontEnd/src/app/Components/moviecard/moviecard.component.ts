@@ -21,8 +21,10 @@ export class MoviecardComponent implements OnInit {
   }
 
   bookNow() {
-    console.log('the movie id',this.movieId)
-    this.router.navigate(['/movie', this.movieId]);
-  }
-
+    if (this.movieId) {
+      this.router.navigate(['/movie', this.movieId]);
+    } else {
+      console.error('Movie ID is undefined');
+    }
+  }  
 }

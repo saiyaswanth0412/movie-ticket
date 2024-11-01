@@ -1,9 +1,10 @@
 <div class="movie-list">
-    <app-moviecard *ngFor="let movie of movies"
+    <app-moviecard *ngFor="let movie of selectedMovies"
                     [title]="movie.title"
                     [subtitle]="movie.subtitle"
                     [image]="movie.image"
-                    [details]="movie.description">
+                    [details]="movie.description"
+                    [movieId]="movie.Movie_ID">
     </app-moviecard>
   </div>
   
