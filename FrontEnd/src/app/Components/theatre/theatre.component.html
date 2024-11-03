@@ -1,4 +1,6 @@
-<div class="movie-detail-container">
+<app-spinner *ngIf="spinnerService.isLoading()"></app-spinner>
+
+<div class="movie-detail-container"  *ngIf="!spinnerService.isLoading()">
     <div 
       class="movie-header" 
       [ngStyle]="{'background-image': 'url(' + selectedMovie.backgroundImage + ')'}">
@@ -9,7 +11,7 @@
           <span class="rating">⭐ {{ selectedMovie.rating }}/10</span>
           <span>{{ selectedMovie.status }}</span>
           <span>{{ selectedMovie.year }}</span>
-          <span>{{ selectedMovie.genre }}</span>
+          <span>{{ selectedMovie.Genre }}</span>
         </div>
         <p class="movie-description">{{ selectedMovie.description }}</p>
       </div>
@@ -20,7 +22,7 @@
         <mat-card *ngFor="let theater of selectedMovie.theaters" class="example-card" appearance="outlined">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ theater.name }}</mat-card-title>
+            <mat-card-title style="width: 200px;">{{ theater.name }}</mat-card-title>
             <mat-card-subtitle>{{ theater.rating }}/10</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image [src]="theater.image" alt="{{theater.name}}">
@@ -29,7 +31,7 @@
             <p><strong>Address:</strong> {{ theater.address }}</p>
           </mat-card-content>
           <mat-card-actions>
-            <button type="button" class="btn btn-danger">Book Now</button>
+              <button type="button" class="btn btn-danger">Book Now</button>
             <button type="button" class="btn btn-primary">Like</button>
           </mat-card-actions>
         </mat-card>

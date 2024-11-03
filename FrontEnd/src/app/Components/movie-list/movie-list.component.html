@@ -1,4 +1,6 @@
-<div class="movie-list">
+<app-spinner *ngIf="spinnerService.isLoading()"></app-spinner> 
+
+<div class="movie-list"  *ngIf="!spinnerService.isLoading()">
     <app-moviecard *ngFor="let movie of selectedMovies"
                     [title]="movie.title"
                     [subtitle]="movie.subtitle"

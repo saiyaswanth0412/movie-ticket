@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/AuthenticationService/authentication.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { AuthenticationService } from 'src/app/Services/AuthenticationService/au
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService,public snackBar: MatSnackBar,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,8 +29,10 @@ export class SignupComponent implements OnInit {
     this.authService.signUp({ email: this.email, password: this.password,mobile:this.mobile,name:this.name })
     .subscribe({
       next: (response) => {
-        if (response && response.token) {
-          this.authService.setLoggedIn(true, "token");
+        if (response && response.userId  ) {
+          this.authService.setLoggedIn(true,  response.token);
+          this.displayMessage("SignUp successful");
+          this.router.navigate(['/movies'])
         }
       },
       error: err => {
@@ -36,5 +40,11 @@ export class SignupComponent implements OnInit {
       }
     });
   }
-
+  private displayMessage(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
+  }
 }

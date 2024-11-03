@@ -30,6 +30,8 @@ import { TheatreComponent } from './Components/theatre/theatre.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BookingComponent } from './Components/booking/booking.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { NotFoumdComponent } from './Components/not-foumd/not-foumd.component';
+import { SpinnerComponent } from './Components/spinner-component/spinner-component.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MovieListComponent,
     TheatreComponent,
     BookingComponent,
+    NotFoumdComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

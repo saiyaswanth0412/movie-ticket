@@ -6,6 +6,7 @@ import { MoviecardComponent } from './Components/moviecard/moviecard.component';
 import { MoviesComponent } from './Components/movies/movies.component';
 import { TheatreComponent } from './Components/theatre/theatre.component';
 import { BookingComponent } from './Components/booking/booking.component';
+import { NotFoumdComponent } from './Components/not-foumd/not-foumd.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [EnsureAuthentication]
   },
+  {
+    path: '**',
+    component: NotFoumdComponent,
+  }
 
 ];
 

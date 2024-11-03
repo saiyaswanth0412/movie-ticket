@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GlobalsService } from 'src/app/Services/Globals/globals.service';
 import { Subscription } from 'rxjs';
 import { MovieApiService } from '../../Services/Movies/movies.service';
+import { SpinnerService } from 'src/app/Services/spinner.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -11,16 +12,17 @@ import { MovieApiService } from '../../Services/Movies/movies.service';
 export class MovieListComponent implements OnInit, OnDestroy {
   movies: any[] = [];
   selectedMovies: any[] = [];
-  private subscription!: Subscription; 
+   subscription!: Subscription; 
 
-  constructor(private globalsService: GlobalsService, private movieApiService: MovieApiService) { }
+  constructor(
+    private globalsService: GlobalsService, 
+    private movieApiService: MovieApiService,
+    public  spinnerService: SpinnerService 
+  ) {}
 
   ngOnInit(): void {
-    this.movieApiService.getMovies().subscribe(movies => {
-      this.movies = movies;
-      this.selectedMovies = movies; 
-    });
-    
+    this.fetchMovies();
+
     this.subscription = this.globalsService.selectedGenere$.subscribe((genere: string) => {
       this.updateMovies(genere);
     });
@@ -32,15 +34,28 @@ export class MovieListComponent implements OnInit, OnDestroy {
     }
   }
 
+  private fetchMovies(): void {
+    this.spinnerService.show(); 
+    this.movieApiService.getMovies().subscribe(
+      movies => {
+        this.movies = movies;
+        this.selectedMovies = movies; 
+        this.spinnerService.hide(); 
+      },
+      error => {
+        console.error('Error fetching movies', error);
+        this.spinnerService.hide();
+      }
+    );
+  }
+
   private updateMovies(genere: string): void {
     console.log('calling....');
     
     if (genere === 'All') {
       this.selectedMovies = this.movies;
     } else {
-      this.selectedMovies = this.movies.filter((movie) => {
-        return movie?.Genre.indexOf(genere) !== -1; 
-      });
+      this.selectedMovies = this.movies.filter(movie => movie?.Genre.indexOf(genere) !== -1);
     }
   }
 }
