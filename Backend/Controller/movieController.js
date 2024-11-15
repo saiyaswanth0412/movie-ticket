@@ -48,4 +48,5 @@ const getMovieByName = async (req, res) => {
         res.status(500).json({ error: 'An unexpected error occurred' });
     }
 }
-module.exports = { getMovies,getMovieById,getMovieByName };
+
+module.exports = { getMovies,getMovieById,getMovieByName};

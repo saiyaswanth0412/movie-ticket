@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 const db = require('./config/db');
 const authRoutes = require('./Routes/authRoutes'); 
 const movieRoutes = require('./Routes/movieRouter');
+const theatreRoutes = require('./Routes/theatreRouter');
+const screenRoutes = require('./Routes/screenRouter');
 const authMiddleware = require('./middleware/authMiddleware');
+const req = require('express/lib/request');
 
 const app = express();
 
@@ -14,6 +17,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/auth', authRoutes); 
 app.use('/api/movie', authMiddleware,movieRoutes);
+app.use('/api/theatre', authMiddleware,theatreRoutes);
+app.use('/api/screen',authMiddleware,screenRoutes);
 
 const PORT = process.env.PORT || 3000;
 

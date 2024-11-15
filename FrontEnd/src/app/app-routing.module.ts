@@ -28,7 +28,7 @@ const routes: Routes = [
     canActivate:[EnsureAuthentication]
   },
   {
-    path:'booking',
+    path:'booking/:screenId',
     component:BookingComponent,
     canActivate:[EnsureAuthentication]
   },
