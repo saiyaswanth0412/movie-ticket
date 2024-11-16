@@ -1,0 +1,21 @@
+<mat-dialog-content>
+  <h3 *ngIf="screens.length!=0">Select a Screen</h3>
+  <h3 *ngIf="screens.length==0">No Screen Allocated To This Theatre</h3>
+  <div class="screen-selection">
+    <mat-card *ngFor="let screen of screens" 
+              class="screen-card"
+              (click)="navigateToBooking(screen.screen_id)">
+      <mat-card-header>
+        <mat-card-title>{{ screen.screen_name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Available Seats: {{ screen.available_seats }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button *ngIf="screens.length!==0" mat-button color="primary">Book Now</button>
+</mat-dialog-actions>

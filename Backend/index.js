@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/auth', authRoutes); 
 app.use('/api/movie', authMiddleware,movieRoutes);
-app.use('/api/theatre', authMiddleware,theatreRoutes);
+app.use('/api/theatre',theatreRoutes);
 app.use('/api/screen',authMiddleware,screenRoutes);
 
 const PORT = process.env.PORT || 3000;

@@ -13,7 +13,7 @@ const getMovies = async (req, res) => {
 const getMovieById = async (req, res) => {
     try {
         const query1 = 'SELECT * FROM Movies WHERE Movie_ID = ?';
-        const query2 = 'SELECT t.name, t.description, t.rating, t.image FROM Theatre_Movies tm INNER JOIN Theatres t ON tm.Theatre_ID = t.Theatre_ID WHERE tm.Movie_ID = ?';
+        const query2 = 'SELECT t.Theatre_ID,t.name, t.description, t.rating, t.image FROM Theatre_Movies tm INNER JOIN Theatres t ON tm.Theatre_ID = t.Theatre_ID WHERE tm.Movie_ID = ?';
 
         connection.query(query1, [req.params.movieId], (error, movieResults) => {
             if (error) {

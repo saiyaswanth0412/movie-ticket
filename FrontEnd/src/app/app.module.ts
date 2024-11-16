@@ -32,6 +32,9 @@ import { BookingComponent } from './Components/booking/booking.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { NotFoumdComponent } from './Components/not-foumd/not-foumd.component';
 import { SpinnerComponent } from './Components/spinner-component/spinner-component.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BookNowDialogComponent } from './Common/book-now-dialog/book-now-dialog.component';
+
 
 
 @NgModule({
@@ -49,6 +52,7 @@ import { SpinnerComponent } from './Components/spinner-component/spinner-compone
     BookingComponent,
     NotFoumdComponent,
     SpinnerComponent,
+    BookNowDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,8 @@ import { SpinnerComponent } from './Components/spinner-component/spinner-compone
     MatChipsModule,
     MatSelectModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

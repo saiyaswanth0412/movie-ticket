@@ -31,11 +31,12 @@
             <p><strong>Address:</strong> {{ theater.address }}</p>
           </mat-card-content>
           <mat-card-actions>
-              <button type="button" class="btn btn-danger">Book Now</button>
+            <button type="button" class="btn btn-danger" (click)="openDialog(theater)">Book Now</button>
             <button type="button" class="btn btn-primary">Like</button>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
+    
   </div>
   
