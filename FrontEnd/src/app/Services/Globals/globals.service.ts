@@ -17,6 +17,7 @@ export class GlobalsService {
   selectedTheatreID:any = null;
   selectedScreenID:any = null;
   getSeatInfo:any = [];
+  selectedMovieID:any = null;
   set selectedGenere(value: string) {
     this.genreSubject.next(value);
   }

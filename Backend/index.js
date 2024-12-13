@@ -20,7 +20,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/movie', authMiddleware,movieRoutes);
 app.use('/api/theatre',theatreRoutes);
 app.use('/api/screen',authMiddleware,screenRoutes);
-app.use('/api/seatSelection',seatSelection)
+app.use('/api/booking',seatSelection)
 
 const PORT = process.env.PORT || 3000;
 

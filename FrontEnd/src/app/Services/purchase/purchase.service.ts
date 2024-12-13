@@ -6,18 +6,20 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class PurchaseService {
-  private apiUrl = 'http://localhost:3000/api/seatSelection';
+  private apiUrl = 'http://localhost:3000/api/booking/seatSelection';
 
   constructor(private http: HttpClient) {
     
   }
-  Purchase(): Observable<any> {
-    const token = localStorage.getItem('token'); 
+  Purchase(screen_id: number, selectedSeats: any[]): Observable<any> {
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get<any>(`${this.apiUrl}`, { headers });
+    const body = { screen_id, selectedSeats };
+    return this.http.post<any>(`${this.apiUrl}`, body, { headers });
   }
+  
   
 }

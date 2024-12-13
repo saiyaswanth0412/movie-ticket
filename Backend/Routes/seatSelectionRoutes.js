@@ -1,6 +1,7 @@
-const router = require('express').Router();  // Corrected
-const { insertSeatDetails } = require('../Controller/purchaseController');
+const { bookseats } = require('../Controller/bookingController');
 
-router.get('/seatSelection', insertSeatDetails);
+const router = require('express').Router();  // Corrected
+
+router.post('/seatSelection', bookseats);
 
 module.exports = router;

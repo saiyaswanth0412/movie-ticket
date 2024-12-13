@@ -35,6 +35,7 @@ import { SpinnerComponent } from './Components/spinner-component/spinner-compone
 import { MatDialogModule } from '@angular/material/dialog';
 import { BookNowDialogComponent } from './Common/book-now-dialog/book-now-dialog.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { BookingConfirmationComponent } from './Common/booking-confirmation/booking-confirmation.component';
 
 
 
@@ -55,6 +56,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     SpinnerComponent,
     BookNowDialogComponent,
     ChatbotComponent,
+    BookingConfirmationComponent,
   ],
   imports: [
     BrowserModule,
