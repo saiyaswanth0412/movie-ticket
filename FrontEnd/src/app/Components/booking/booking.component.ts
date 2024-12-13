@@ -12,6 +12,9 @@ export class BookingComponent implements OnInit {
 
   this.seatRows = this.globalService.getSeatInfo
   }
+  onBookNow(){
+    console.log('the booking now ')
+  }
 
   ngOnInit(): void {
   }

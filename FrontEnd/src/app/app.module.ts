@@ -34,6 +34,7 @@ import { NotFoumdComponent } from './Components/not-foumd/not-foumd.component';
 import { SpinnerComponent } from './Components/spinner-component/spinner-component.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BookNowDialogComponent } from './Common/book-now-dialog/book-now-dialog.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 
@@ -53,6 +54,7 @@ import { BookNowDialogComponent } from './Common/book-now-dialog/book-now-dialog
     NotFoumdComponent,
     SpinnerComponent,
     BookNowDialogComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,
