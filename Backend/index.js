@@ -7,6 +7,7 @@ const authRoutes = require('./Routes/authRoutes');
 const movieRoutes = require('./Routes/movieRouter');
 const theatreRoutes = require('./Routes/theatreRouter');
 const screenRoutes = require('./Routes/screenRouter');
+const seatSelection=require('./Routes/seatSelectionRoutes')
 const authMiddleware = require('./middleware/authMiddleware');
 const req = require('express/lib/request');
 
@@ -19,6 +20,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/movie', authMiddleware,movieRoutes);
 app.use('/api/theatre',theatreRoutes);
 app.use('/api/screen',authMiddleware,screenRoutes);
+app.use('/api/seatSelection',seatSelection)
 
 const PORT = process.env.PORT || 3000;
 
