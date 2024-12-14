@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
         if (response && response.userId  ) {
           this.authService.setLoggedIn(true,  response.token);
           this.displayMessage("SignUp successful");
+          if(response.role === 'Admin') localStorage.setItem('Admin', 'true');
           this.router.navigate(['/movies'])
         }
       },

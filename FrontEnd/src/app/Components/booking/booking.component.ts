@@ -70,7 +70,6 @@ export class BookingComponent implements OnInit {
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      console.log('hi ');
         this.router.navigate(['/movies']);
       
     });

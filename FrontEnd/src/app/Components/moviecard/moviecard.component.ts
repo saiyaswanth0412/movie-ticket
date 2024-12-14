@@ -23,8 +23,10 @@ export class MoviecardComponent implements OnInit {
   @Input() subtitle!: string;
   @Input() image!: string;
   @Input() details!: string;
-
-  ngOnInit(): void {}
+  role: string | null = null;
+  ngOnInit(): void {
+    this.role = localStorage.getItem('Admin');
+  }
 
   bookNow() {
     if (this.movieId) {
@@ -73,6 +75,8 @@ export class MoviecardComponent implements OnInit {
         next: () => {
           console.log('Data deleted successfully');
           this.router.navigate(['/movies']);
+          location.reload();
+          
         },
         error: (error) => {
           console.error('Error occurred while deleting data:', error);

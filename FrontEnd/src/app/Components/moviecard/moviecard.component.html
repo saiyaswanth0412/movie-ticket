@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
     <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
-    <div>
+    <div *ngIf="role">
       <span class="material-symbols-outlined" (click)="openEditDialog()">edit</span>
       <span class="material-symbols-outlined" (click)="deleteMovie()">delete</span>
     </div>

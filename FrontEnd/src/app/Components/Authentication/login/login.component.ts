@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
           this.authService.setLoggedIn(true, response.token);
           this.displayMessage("Login successful");
           this.router.navigate(['/movies'])
+          if(response.role === 'Admin') localStorage.setItem('Admin', 'true');
         }
       },
       error: err => {

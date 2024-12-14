@@ -1,31 +1,5 @@
 const connection = require("../config/db");
 
-// Get all movies
-const getMovies = async (req, res) => {
-  try {
-    const movies = await db.query("SELECT * FROM Movies");
-    res.status(200).json(movies.rows);
-  } catch (error) {
-    res.status(500).json({ error: "Error fetching movies" });
-  }
-};
-
-// Get movie by ID
-const getMovieById = async (req, res) => {
-  const { movieId } = req.params;
-  try {
-    const movie = await db.query("SELECT * FROM Movies WHERE Movie_ID = $1", [
-      movieId,
-    ]);
-    if (movie.rows.length) {
-      res.status(200).json(movie.rows[0]);
-    } else {
-      res.status(404).json({ error: "Movie not found" });
-    }
-  } catch (error) {
-    res.status(500).json({ error: "Error fetching movie" });
-  }
-};
 
 // Add a new movie
 const addMovie = async (req, res) => {
@@ -78,6 +52,8 @@ const deleteMovie = async (req, res) => {
   try {
     const query = "DELETE FROM Movies WHERE Movie_ID = ?";
     const query2 = "DELETE FROM Theatre_Movies WHERE Movie_ID = ?";
+
+    //Delete movie from Theatre_Movies table first
     connection.query(query2, [movieId], (error, results) => {
       if (error) {
         return res.status(500).json({ error: "Error deleting movie" });
@@ -130,8 +106,6 @@ const updateMovie = async (req, res) => {
 };
 
 module.exports = {
-  getMovies,
-  getMovieById,
   addMovie,
   updateMovie,
   deleteMovie,
