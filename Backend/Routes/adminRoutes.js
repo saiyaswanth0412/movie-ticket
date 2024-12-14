@@ -18,10 +18,8 @@ router.get('/:movieId', getMovieById);
 // Add a new movie
 router.post('/', addMovie);
 
-// Update an existing movie by ID
-router.put('/:movieId', updateMovie);
+router.put('/updateMovie', updateMovie);
 
-// Delete a movie by ID
-router.delete('/:movieId', deleteMovie);
+router.delete('/deleteMovie', deleteMovie);
 
 module.exports = router;

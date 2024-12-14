@@ -21,6 +21,7 @@ app.use('/api/movie', authMiddleware,movieRoutes);
 app.use('/api/theatre',theatreRoutes);
 app.use('/api/screen',authMiddleware,screenRoutes);
 app.use('/api/booking',seatSelection)
+app.use('/api/admin', require('./Routes/adminRoutes'));
 
 const PORT = process.env.PORT || 3000;
 

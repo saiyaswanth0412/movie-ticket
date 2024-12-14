@@ -1,0 +1,28 @@
+<h2>Edit Movie Details </h2>
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="data.title" name="title">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Details</mat-label>
+    <textarea matInput [(ngModel)]="data.details" name="details"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Image</mat-label>
+    <textarea matInput [(ngModel)]="data.image" name="image"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Subtitle</mat-label>
+    <textarea matInput [(ngModel)]="data.subtitle" name="subtitle"></textarea>
+  </mat-form-field>
+
+
+  <div style="text-align: center; margin-top: 16px;">
+    <button mat-button (click)="save()">Save</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+  </div>
+</form>

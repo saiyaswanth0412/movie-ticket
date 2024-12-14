@@ -13,7 +13,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { SignupComponent } from './Components/Authentication/signup/signup.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MoviecardComponent } from './Components/moviecard/moviecard.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
@@ -36,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BookNowDialogComponent } from './Common/book-now-dialog/book-now-dialog.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { BookingConfirmationComponent } from './Common/booking-confirmation/booking-confirmation.component';
+import { EditMovieFormComponent } from './Components/edit-movie-form/edit-movie-form.component';
 
 
 
@@ -57,6 +58,7 @@ import { BookingConfirmationComponent } from './Common/booking-confirmation/book
     BookNowDialogComponent,
     ChatbotComponent,
     BookingConfirmationComponent,
+    EditMovieFormComponent    
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ import { BookingConfirmationComponent } from './Common/booking-confirmation/book
     MatSelectModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
