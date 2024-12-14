@@ -37,6 +37,7 @@ import { BookNowDialogComponent } from './Common/book-now-dialog/book-now-dialog
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { BookingConfirmationComponent } from './Common/booking-confirmation/booking-confirmation.component';
 import { EditMovieFormComponent } from './Components/edit-movie-form/edit-movie-form.component';
+import { AddMovieFormComponent } from './Components/add-movie-form/add-movie-form.component';
 
 
 
@@ -58,7 +59,8 @@ import { EditMovieFormComponent } from './Components/edit-movie-form/edit-movie-
     BookNowDialogComponent,
     ChatbotComponent,
     BookingConfirmationComponent,
-    EditMovieFormComponent    
+    EditMovieFormComponent,
+    AddMovieFormComponent    
   ],
   imports: [
     BrowserModule,

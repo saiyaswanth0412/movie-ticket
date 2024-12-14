@@ -5,6 +5,9 @@
         <mat-chip *ngFor="let genre of genres" [selected]="genre === selectedGenre" (click)="selectGenre(genre)" color="primary" [selectable]="true" style="margin-right: 50px;">
           {{ genre }}
         </mat-chip>
+        <mat-chip *ngIf="role" (click)="openAddDialog()" color="warn" [selectable]="true">
+         Add Movie
+        </mat-chip>
       </mat-chip-list>
     </div>
   </div>

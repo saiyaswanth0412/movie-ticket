@@ -1,52 +1,5 @@
 const connection = require("../config/db");
 
-
-// Add a new movie
-const addMovie = async (req, res) => {
-  const {
-    title,
-    Genre,
-    Duration,
-    Language,
-    Release_Date,
-    rating,
-    status,
-    year,
-    description,
-    date,
-    time,
-    price,
-    image,
-    details,
-    backgroundImage,
-  } = req.body;
-  try {
-    await db.query(
-      "INSERT INTO Movies (title, Genre, Duration, Language, Release_Date, rating, status, year, description, date, time, price, image, details, backgroundImage) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)",
-      [
-        title,
-        Genre,
-        Duration,
-        Language,
-        Release_Date,
-        rating,
-        status,
-        year,
-        description,
-        date,
-        time,
-        price,
-        image,
-        details,
-        backgroundImage,
-      ]
-    );
-    res.status(201).json({ message: "Movie added successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "Error adding movie" });
-  }
-};
-
 const deleteMovie = async (req, res) => {
   const { movieId } = req.query;
   try {
@@ -102,6 +55,57 @@ const updateMovie = async (req, res) => {
       return res.status(500).json({ error: "Error updating movie" });
     }
     res.status(200).json({ message: "Movie updated successfully", results });
+  });
+};
+
+const addMovie = async (req, res) => {
+  const {
+    title,
+    Genre,
+    Language,
+    rating,
+    status,
+    description,
+    price,
+    image,
+    backgroundImage,
+    Duration= '02:28:00'
+  } = req.body;
+
+  if (
+    !title ||
+    !Genre ||
+    !Language ||
+    !rating ||
+    !status ||
+    !description ||
+    !price ||
+    !image ||
+    !backgroundImage
+  ) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+  const query = `INSERT INTO Movies (title, Genre, Language, rating, status, description, price, image, backgroundImage, Duration) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  const values = [
+    title,
+    Genre,
+    Language,
+    rating,
+    status,
+    description,
+    price,
+    image,
+    backgroundImage,
+    Duration
+  ];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: "Error adding movie" });
+    }
+    res.status(200).json({ message: "Movie added successfully", results });
   });
 };
 

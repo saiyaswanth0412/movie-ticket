@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 
-router.post('/', addMovie);
+router.post('/addMovie', addMovie);
 
 router.put('/updateMovie', updateMovie);
 
