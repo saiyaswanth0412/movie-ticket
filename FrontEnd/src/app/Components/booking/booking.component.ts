@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { BookingConfirmationComponent } from 'src/app/Common/booking-confirmation/booking-confirmation.component';
 import { GlobalsService } from 'src/app/Services/Globals/globals.service';
 import { PurchaseService } from 'src/app/Services/purchase/purchase.service';
@@ -13,7 +14,8 @@ import { SpinnerService } from 'src/app/Services/spinner.service';
 })
 export class BookingComponent implements OnInit {
 
-  constructor(public globalService: GlobalsService, public purchaseService: PurchaseService, public spinnerService: SpinnerService,public dialog: MatDialog) { 
+
+  constructor(public globalService: GlobalsService, public purchaseService: PurchaseService, public spinnerService: SpinnerService,public dialog: MatDialog,private router:Router) { 
 
   this.seatRows = this.globalService.getSeatInfo
   }
@@ -63,9 +65,16 @@ export class BookingComponent implements OnInit {
   }
 
   openConfirmationDialog(): void {
-    this.dialog.open(BookingConfirmationComponent, {
+    const dialogRef = this.dialog.open(BookingConfirmationComponent, {
       width: '300px',
     });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('hi ');
+        this.router.navigate(['/movies']);
+      
+    });
   }
+  
 
 }
